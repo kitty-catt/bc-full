@@ -42,6 +42,7 @@ done
 # Deploy the inventory service
 oc new-app \
  --name=inventory \
+ --as-deployment-config \
  --code=https://github.com/kitty-catt/inventory-ms-spring \
  --image-stream=redhat-openjdk18-openshift:1.8 \
  -e MYSQL_HOST=inventorymysql \
