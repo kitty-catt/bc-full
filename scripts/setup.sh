@@ -23,11 +23,10 @@ oc new-app \
 -p MYSQL_VERSION=8.0 
 
 # populate the DB
-curl https://raw.githubusercontent.com/ibm-garage-ref-storefront/inventory-ms-spring/master/scripts/mysql_data.sql  -o mysql_data.sql
+curl https://raw.githubusercontent.com/kitty-catt/inventory-ms-spring/master/scripts/mysql_data.sql  -o mysql_data.sql
 
 opt=nope
 while [  "$opt" != "happy" ] ; do
-
     POD=$(oc get po | grep -v deploy| grep inventorymysql | awk '{print $1}')
     echo "found pod: $POD"
     oc rsh $POD mysql -udbuser -ppassword inventorydb < mysql_data.sql
@@ -38,9 +37,18 @@ while [  "$opt" != "happy" ] ; do
         echo "database not initialized yet, retry"
         sleep 1
     fi
-
 done
 
+# Deploy the inventory service
+oc new-app \
+ --name=inventory \
+ --code=https://github.com/kitty-catt/inventory-ms-spring \
+ --image-stream=redhat-openjdk18-openshift:1.8 \
+ -e MYSQL_HOST=inventorymysql \
+ -e MYSQL_PORT=3306 \
+ -e MYSQL_DATABASE=inventorydb \
+ -e MYSQL_USER=dbuser \
+ -e MYSQL_PASSWORD=password
 
 # return
 cd -
