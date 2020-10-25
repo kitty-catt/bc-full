@@ -14,7 +14,6 @@ then
     echo "Directory /tmp/$WORKSPACE allready exists, cleaning up." 
     rm -rfi /tmp/$WORKSPACE
     mkdir -pv /tmp/$WORKSPACE
-    touch /tmp/$WORKSPACE/kijk.txt
 else
     echo "Directory /tmp/$WORKSPACE does not exists."
     mkdir -pv /tmp/$WORKSPACE    
