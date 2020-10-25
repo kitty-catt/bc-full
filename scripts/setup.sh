@@ -8,7 +8,7 @@ rm -rf ~/$WORKSPACE
 mkdir -pv ~/$WORKSPACE
 
 bash setup-pipeline.sh
-bash setup-inventory-ms.sh
+bash inventory/setup-inventory-ms.sh
 
 
 
