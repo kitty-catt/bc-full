@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "setting up inventory microservice"
-source config
+source ../config
 
 # Use OCP's capability to deploy the MySQL database
 oc new-app \
