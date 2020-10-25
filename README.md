@@ -18,6 +18,12 @@ The following commands will setup the namespace full-bc on your OCP4 cluster.
 NOTES: 
 - when the script is run, then it will install the database and it will retry loading the database until it succeeds. Just have patience.
 
+# Build
+
+
+# Deploy
+
+
 # Tear Down
 
    oc delete project bc-full
