@@ -1,14 +1,13 @@
-NAMESPACE=full-bc
-WORKZ=full-bc-tmp
+source config
 
 oc new-project $NAMESPACE
 
-echo "temporary artifacts are stored in: " ~/$WORKZ
+echo "temporary artifacts are stored in: " ~/$WORKSPACE
 
-rm -rf ~/$WORKZ
-mkdir -pv ~/$WORKZ
+rm -rf ~/$WORKSPACE
+mkdir -pv ~/$WORKSPACE
 
-cd ~/$WORKZ
+cd ~/$WORKSPACE
 
 # Use OCP's capability to deploy the MySQL database
 oc new-app \
@@ -44,7 +43,7 @@ oc new-app \
  --name=inventory \
  --as-deployment-config \
  --code=https://github.com/kitty-catt/inventory-ms-spring \
- --image-stream=redhat-openjdk18-openshift:1.8 \
+ --image-stream=redhat-openjdk18-openshift:1.5 \
  -e MYSQL_HOST=inventorymysql \
  -e MYSQL_PORT=3306 \
  -e MYSQL_DATABASE=inventorydb \
