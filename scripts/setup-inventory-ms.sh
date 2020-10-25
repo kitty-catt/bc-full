@@ -33,12 +33,13 @@ while [  "$opt" != "happy" ] ; do
     fi
 done
 
+## Must deploy from image build by appsody.
+
 ## Deploy the inventory service
 #oc new-app \
 # --name=inventory \
 # --as-deployment-config \
-# --code=https://github.com/kitty-catt/inventory-ms-spring \
-# --image-stream=redhat-openjdk18-openshift:1.5 \
+# --docker-image=TBD
 # -e MYSQL_HOST=inventorymysql \
 # -e MYSQL_PORT=3306 \
 # -e MYSQL_DATABASE=inventorydb \
