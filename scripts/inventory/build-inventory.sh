@@ -1,5 +1,5 @@
 #!/bin/bash
 
 echo "building inventory image"
-source $HERE/scripts/config
+oc apply -f $HERE/tekton-pipeline-run/inventory-run.yaml
 
