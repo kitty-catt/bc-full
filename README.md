@@ -31,6 +31,10 @@ Build the container images via the
 
 # Deploy
 
+Deploy the microservices.
+
+    bash scripts/deploy.sh
+
 
 # Tear Down
 
