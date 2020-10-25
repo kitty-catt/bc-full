@@ -6,6 +6,10 @@ The following repositories are deployed: <br>
 
 [the IBM blue compute spring repo's](https://github.com/ibm-garage-ref-storefront/?q=spring&type=&language=)
 
+# Preparation
+
+Configure the yaml files in tekton-resources as well as scripts/config.
+
 # Setup
 
 The following commands will setup the namespace full-bc on your OCP4 cluster.
@@ -15,11 +19,15 @@ The following commands will setup the namespace full-bc on your OCP4 cluster.
     cd bc-full
     bash scripts/setup.sh
 
-NOTES: 
-- when the script is run, then it will install the database and it will retry loading the database until it succeeds. Just have patience.
+When the script is run, then it will install and load the databases. Wait until the retry succeeds.
+
+Next, the generic pipeline is created
 
 # Build
 
+Build the container images via the 
+
+    bash scripts/build.sh
 
 # Deploy
 
