@@ -15,6 +15,7 @@ The following commands will setup the namespace full-bc on your OCP4 cluster.
     cd bc-full
     bash scripts/setup.sh
 
+NOTE: when the script is run, then it will install the database and it will retry loading the database until it succeeds. Just have patience.
 
 # Tear Down
 
