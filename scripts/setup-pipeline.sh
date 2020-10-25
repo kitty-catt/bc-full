@@ -20,3 +20,5 @@ oc secrets link appsody-sa quay-cred
 
 oc secrets link default quay-cred  --for=pull
 #oc describe sa default
+
+oc apply -f ../tekton-resources/inventory-resources.yaml
