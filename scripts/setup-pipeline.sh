@@ -16,4 +16,7 @@ oc create secret docker-registry quay-cred \
     --docker-email=${QUAY_EMAIL}
 
 oc secrets link appsody-sa quay-cred
-oc describe sa appsody-sa
+#oc describe sa appsody-sa
+
+oc secrets link default quay-cred  --for=pull
+#oc describe sa default
