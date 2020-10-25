@@ -19,8 +19,13 @@ else
     mkdir -pv /tmp/$WORKSPACE    
 fi
 
-bash $HERE/scripts/pipeline/setup-pipeline.sh
-bash $HERE/scripts/inventory/setup-inventory-ms.sh
+bash $HERE/scripts/pipeline/setup.sh
+
+bash $HERE/scripts/catalog/setup.sh
+bash $HERE/scripts/customers/setup.sh
+bash $HERE/scripts/inventory/setup.sh
+bash $HERE/scripts/orders/setup.sh
+bash $HERE/scripts/web/setup.sh
 
 
 

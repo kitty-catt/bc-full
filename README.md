@@ -38,5 +38,5 @@ Deploy the microservices.
 
 # Tear Down
 
-   oc delete project bc-full
+   oc delete project full-bc
 
