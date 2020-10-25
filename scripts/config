@@ -1,2 +1,6 @@
 NAMESPACE=full-bc
 WORKSPACE=full-bc-tmp
+
+QUAY_PWD=
+QUAY_USER=
+QUAY_EMAIL=
