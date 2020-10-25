@@ -3,7 +3,7 @@ items:
 - apiVersion: tekton.dev/v1alpha1
   kind: PipelineResource
   metadata:
-    name: docker-image
+    name: inventory-image
   spec:
     params:
     - name: url
@@ -12,7 +12,7 @@ items:
 - apiVersion: tekton.dev/v1alpha1
   kind: PipelineResource
   metadata:
-    name: git-source
+    name: inventory-source
   spec:
     params:
     - name: revision
