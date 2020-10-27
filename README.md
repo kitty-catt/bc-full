@@ -1,6 +1,6 @@
 # Purpose
 
-This repository aims to deploy the full IBM Blue Compute shop with a single command into an Openshift Cluster. <br>
+This repository aims to deploy the full IBM Blue Compute shop with a single command into an Openshift Cluster with corresponding Tekton pipeline. The Tekton pipeline will build the repo's from source to container image. <br>
 
 The following repositories are deployed: <br>
 
