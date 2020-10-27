@@ -14,7 +14,8 @@ oc create cm inventory \
 oc new-app \
  --name=inventory \
  --as-deployment-config \
- --docker-image=quay.io/kitty_catt/inventory:latest
+ --image-stream=inventory
+# --docker-image=quay.io/kitty_catt/inventory:latest
 # -e MYSQL_HOST=inventorymysql \
 # -e MYSQL_PORT=3306 \
 # -e MYSQL_DATABASE=inventorydb \
