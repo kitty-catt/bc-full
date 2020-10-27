@@ -13,4 +13,4 @@ spec:
         name: inventory-source
     - name: docker-image
       resourceRef:
-        name: inventory-image
+        name: inventory-image-internal

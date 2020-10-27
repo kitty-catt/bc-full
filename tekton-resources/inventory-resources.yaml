@@ -3,12 +3,21 @@ items:
 - apiVersion: tekton.dev/v1alpha1
   kind: PipelineResource
   metadata:
-    name: inventory-image
+    name: inventory-image-internal
+  spec:
+    params:
+    - name: url
+      value: image-registry.openshift-image-registry.svc:5000/full-bc/inventory
+    type: image
+- apiVersion: tekton.dev/v1alpha1
+  kind: PipelineResource
+  metadata:
+    name: inventory-image-external
   spec:
     params:
     - name: url
       value: quay.io/kitty_catt/inventory
-    type: image
+    type: image    
 - apiVersion: tekton.dev/v1alpha1
   kind: PipelineResource
   metadata:
