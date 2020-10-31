@@ -26,7 +26,7 @@ Get yourself a free Openshift 4 cluster for a couple of hours:
 
 ## Pipeline Resources
 
-1. configure the yaml files in tekton-resources;
+Configure the yaml files in tekton-resources.
 
     vi tekton-resources/inventory-resources.yaml
     vi tekton-resources/catalog-resources.yaml
@@ -39,11 +39,10 @@ The following commands will setup the namespace full-bc on your OCP4 cluster.
     bash scripts/setup.sh
 
 When the script is run, then it will:
+- initialize the generic tekton pipeline.
 - install the mysql database for the inventory. 
 - wait until the mysql database is up.
 - load the database.
-
-Next, the generic pipeline is created
 
 # Build
 
