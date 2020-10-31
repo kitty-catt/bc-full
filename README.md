@@ -40,9 +40,9 @@ The following commands will setup the namespace full-bc on your OCP4 cluster.
 
 When the script is run, then it will:
 - initialize the generic tekton pipeline.
-- install the mysql database for the inventory. 
+- install the mysql database for the inventory microservice [architecture](https://github.com/ibm-garage-ref-storefront/inventory-ms-spring). 
 - wait until the mysql database is up.
-- load the database.
+- load the inventory database.
 
 # Build
 
