@@ -7,7 +7,11 @@ oc apply -f $HERE/tekton-pipelines/pipeline.yaml
 oc apply -f $HERE/tekton-tasks/appsody-build-push.yaml 
 
 oc create sa appsody-sa
+
+# Note: the sleep will give OCP time to create the service account, and that is necessary for allocating the role binding.
+sleep 15
 oc policy add-role-to-user admin system:serviceaccount:$NAMESPACE:appsody-sa
+oc policy add-role-to-user admin system:serviceaccount:$NAMESPACE:pipeline
 
 oc create secret docker-registry quay-cred \
     --docker-server=quay.io \
