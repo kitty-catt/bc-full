@@ -8,6 +8,10 @@ The following repositories are deployed: <br>
 
 # Preparation
 
+Get yourself a free Openshift 4 cluster for a couple of hours:
+
+[IBM Open Labs](https://developer.ibm.com/openlabs/openshift)
+
 ## Configuration
 
     cp scripts/config ~/config
