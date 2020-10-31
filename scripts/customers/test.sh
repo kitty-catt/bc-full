@@ -26,3 +26,7 @@ curl -X POST -i "http://$ROUTE/micro/customer/add" -H "Content-Type: application
 #curl -s -X GET "http://$ROUTE/micro/customer/search?username=${TEST_USER}" -H 'Content-type: application/json' -H "${jwt}" 
 curl -s -X GET "http://$ROUTE/micro/customer/search?username=${TEST_USER}" -H 'Content-type: application/json' -H "Authorization: Bearer ${jwt}" 
 
+
+# precious hint: ... port 8082
+# 2020-10-31 10:19:17.045  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path '/micro'
+
