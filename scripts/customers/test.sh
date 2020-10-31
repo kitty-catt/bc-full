@@ -2,4 +2,7 @@
 
 echo "testing customers deployment"
 
-echo "TODO"
+export ROUTE=$(oc get route | grep customercouchdb | awk  '{ print $2}')
+curl -w "\n" $ROUTE
+
+echo "TODO: check customer service"

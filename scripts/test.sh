@@ -1,11 +1,19 @@
 #!/bin/bash
 
-echo "building images"
+clear
+echo "Testing known endpoints"
 export HERE=${PWD}
-echo "Working from $HERE"
+#echo "Working from $HERE"
 
+echo "--------------------------------------------------------------------------------------------------"
 bash $HERE/scripts/catalog/test.sh
+echo "--------------------------------------------------------------------------------------------------"
 bash $HERE/scripts/customers/test.sh
+echo "--------------------------------------------------------------------------------------------------"
 bash $HERE/scripts/inventory/test.sh
+echo "--------------------------------------------------------------------------------------------------"
 bash $HERE/scripts/orders/test.sh
+echo "--------------------------------------------------------------------------------------------------"
 bash $HERE/scripts/web/test.sh
+echo "--------------------------------------------------------------------------------------------------"
+echo "Beware of endpoints that you do not know."
