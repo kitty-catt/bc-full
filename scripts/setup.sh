@@ -3,7 +3,7 @@
 export HERE=${PWD}
 echo "Working from $HERE"
 
-source $HERE/scripts/config
+source ~/config
 
 oc new-project $NAMESPACE
 

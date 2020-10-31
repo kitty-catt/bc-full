@@ -8,10 +8,18 @@ The following repositories are deployed: <br>
 
 # Preparation
 
+## Configuration
+
+    cp scripts/config ~/config
+    vi ~/config
+
+## Operators
+1. deploy the openshift pipeline operator (in openshift);
+2. deploy the appsody operator (in openshift);
+
+## Pipeline Resources
 1. configure the yaml files in tekton-resources;
-2. configure scripts/config;
-3. deploy the openshift pipeline operator (in openshift);
-4. deploy the appsody operator (in openshift);
+
 
 # Setup
 
