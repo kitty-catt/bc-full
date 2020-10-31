@@ -1,3 +1,4 @@
+# note: the namespace is not completely scripted yet. Keep it full-bc for now.
 NAMESPACE=full-bc
 WORKSPACE=full-bc
 
