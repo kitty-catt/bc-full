@@ -16,12 +16,12 @@ oc create sa couchdb
 oc adm policy add-scc-to-user anyuid -z couchdb
 
 # DANGER 2: an easy to guess login.
-echo "DANGER: an easy to guess login!"
+echo "DANGER: an easy to guess login in the default installation configuration!"
 sleep 10
 
 oc new-app --name=customercouchdb \
-   -e COUCHDB_USER=admin \
-   -e COUCHDB_PASSWORD=passw0rd \
+   -e COUCHDB_USER=$COUCHDB_USER \
+   -e COUCHDB_PASSWORD=$COUCHDB_PASSWORD \
    --docker-image=couchdb:2.1.2 \
    --as-deployment-config
 
