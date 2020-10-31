@@ -14,27 +14,34 @@ Get yourself a free Openshift 4 cluster for a couple of hours:
 
 ## Configuration
 
+    git clone https://github.com/kitty-catt/bc-full.git
+    cd bc-full   
     cp scripts/config ~/config
     vi ~/config
 
 ## Operators
+
 1. deploy the openshift pipeline operator (in openshift);
 2. deploy the appsody operator (in openshift);
 
 ## Pipeline Resources
+
 1. configure the yaml files in tekton-resources;
 
+    vi tekton-resources/inventory-resources.yaml
+    vi tekton-resources/catalog-resources.yaml
 
 # Setup
 
 The following commands will setup the namespace full-bc on your OCP4 cluster.
 
     oc login
-    git clone https://github.com/kitty-catt/bc-full.git
-    cd bc-full
     bash scripts/setup.sh
 
-When the script is run, then it will install and load the databases. Wait until the retry succeeds.
+When the script is run, then it will:
+- install the mysql database for the inventory. 
+- wait until the mysql database is up.
+- load the database.
 
 Next, the generic pipeline is created
 
