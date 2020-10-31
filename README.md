@@ -58,6 +58,12 @@ Deploy the microservices.
     bash scripts/deploy.sh
 
 
+# Test
+
+Test the microservices.
+
+    bash scripts/test.sh
+
 # Tear Down
 
    oc delete project full-bc
