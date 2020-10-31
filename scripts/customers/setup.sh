@@ -1,8 +1,10 @@
 #!/bin/bash
 
 echo "setup customers"
+echo ""
 source ~/config
 
+# Admin JWT Token
 jwt1=$(echo -n '{"alg":"HS256","typ":"JWT"}' | openssl enc -base64);
 jwt2=$(echo -n "{\"scope\":[\"admin\"],\"user_name\":\"${TEST_USER}\"}" | openssl enc -base64);
 jwt3=$(echo -n "${jwt1}.${jwt2}" | tr '+\/' '-_' | tr -d '=' | tr -d '\r\n');
@@ -11,8 +13,23 @@ jwt=$(echo -n "${jwt3}.${jwt4}");
 
 echo "JWT admin token:"
 echo $jwt
-# Note: verify in jwt.io
-exit
+echo ""
+
+# Customer JWT Token
+jwt1=$(echo -n '{"alg":"HS256","typ":"JWT"}' | openssl enc -base64);
+jwt2=$(echo -n "{\"scope\":[\"blue\"],\"user_name\":\"${CUSTOMER_ID}\"}" | openssl enc -base64);
+jwt3=$(echo -n "${jwt1}.${jwt2}" | tr '+\/' '-_' | tr -d '=' | tr -d '\r\n');
+jwt4=$(echo -n "${jwt3}" | openssl dgst -binary -sha256 -hmac "${HS256_KEY}" | openssl enc -base64 | tr '+\/' '-_' | tr -d '=' | tr -d '\r\n');
+jwt_blue=$(echo -n "${jwt3}.${jwt4}");
+
+echo "JWT blue token:"
+echo $jwt_blue
+echo ""
+
+
+echo "verify both tokens via http://jwt.io with HS256_KEY:"
+echo "$HS256_KEY" 
+echo ""
 
 # Start a CouchDB Container with a database user, a password, and create a new database
 #docker run --name customercouchdb -p 5985:5984 -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=passw0rd -d couchdb:2.1.2
