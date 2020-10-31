@@ -1,6 +1,18 @@
 #!/bin/bash
 
 echo "setup customers"
+source ~/config
+
+jwt1=$(echo -n '{"alg":"HS256","typ":"JWT"}' | openssl enc -base64);
+jwt2=$(echo -n "{\"scope\":[\"admin\"],\"user_name\":\"${TEST_USER}\"}" | openssl enc -base64);
+jwt3=$(echo -n "${jwt1}.${jwt2}" | tr '+\/' '-_' | tr -d '=' | tr -d '\r\n');
+jwt4=$(echo -n "${jwt3}" | openssl dgst -binary -sha256 -hmac "${HS256_KEY}" | openssl enc -base64 | tr '+\/' '-_' | tr -d '=' | tr -d '\r\n');
+jwt=$(echo -n "${jwt3}.${jwt4}");
+
+echo "JWT admin token:"
+echo $jwt
+# Note: verify in jwt.io
+exit
 
 # Start a CouchDB Container with a database user, a password, and create a new database
 #docker run --name customercouchdb -p 5985:5984 -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=passw0rd -d couchdb:2.1.2
