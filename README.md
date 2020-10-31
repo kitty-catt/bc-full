@@ -44,6 +44,7 @@ When the script is run, then it will:
 - wait until the mysql database is up.
 - load the inventory database.
 - install the elastic search database for the catalog microservice [architecture](https://github.com/ibm-garage-ref-storefront/catalog-ms-spring)
+- install the CouchDB database for the customer microservice [architecture](https://github.com/ibm-garage-ref-storefront/customer-ms-spring)
 
 # Build
 
