@@ -43,6 +43,7 @@ When the script is run, then it will:
 - install the mysql database for the inventory microservice [architecture](https://github.com/ibm-garage-ref-storefront/inventory-ms-spring). 
 - wait until the mysql database is up.
 - load the inventory database.
+- install the elastic search database for the catalog microservice [architecture](https://github.com/ibm-garage-ref-storefront/catalog-ms-spring)
 
 # Build
 
