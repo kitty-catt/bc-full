@@ -27,3 +27,5 @@ oc secrets link default quay-cred  --for=pull
 
 oc apply -f $HERE/tekton-resources/inventory-resources.yaml
 oc apply -f $HERE/tekton-resources/catalog-resources.yaml
+oc apply -f $HERE/tekton-resources/customer-resources.yaml
+
