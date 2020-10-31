@@ -4,7 +4,7 @@ This repository aims to deploy the full IBM Blue Compute shop with a single comm
 
 The following repositories are deployed: <br>
 
-[IBM blue compute](https://github.com/ibm-garage-ref-storefront/?q=spring&type=&language=)
+[IBM blue compute](https://github.com/ibm-garage-ref-storefront/?q=storefront-ui+OR+spring&type=&language=)
 
 # Preparation
 
