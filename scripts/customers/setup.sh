@@ -9,10 +9,15 @@ echo "setup customers"
 
 # DANGER 1: A root pod from the wild!
 # Limit the danger to this deployment.
+echo "DANGER: a root pod from the wild!"
+sleep 10
+
 oc create sa couchdb
 oc adm policy add-scc-to-user anyuid -z couchdb
 
 # DANGER 2: an easy to guess login.
+echo "DANGER: an easy to guess login!"
+sleep 10
 
 oc new-app --name=customercouchdb \
    -e COUCHDB_USER=admin \
