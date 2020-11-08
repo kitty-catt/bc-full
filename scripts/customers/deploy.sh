@@ -20,7 +20,6 @@ oc new-app --name=customer \
  -e COUCHDB_PASSWORD=${COUCHDB_PASSWORD} \
  -e COUCHDB_DATABASE=customers \
  -e HS256_KEY=${HS256_KEY} \
-  --image-stream=customer \
-  --as-deployment-config
+  --image-stream=customer 
 
 oc expose svc/customer --port=8080

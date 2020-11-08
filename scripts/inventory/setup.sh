@@ -5,7 +5,6 @@ echo "setting up inventory microservice"
 # Use OCP's capability to deploy the MySQL database
 oc new-app \
   --name inventorymysql \
-  --as-deployment-config \
   --template openshift/mysql-persistent \
 -p DATABASE_SERVICE_NAME=inventorymysql \
 -p MYSQL_ROOT_PASSWORD=admin123 \
@@ -37,7 +36,6 @@ done
 ## Deploy the inventory service
 #oc new-app \
 # --name=inventory \
-# --as-deployment-config \
 # --docker-image=TBD
 # -e MYSQL_HOST=inventorymysql \
 # -e MYSQL_PORT=3306 \

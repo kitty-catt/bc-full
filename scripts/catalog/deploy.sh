@@ -17,7 +17,6 @@ oc new-app --name=catalog \
    -e ELASTIC_CLUSTER_NAME=docker-cluster \
    -e ELASTIC_NODE_URL=catalogelasticsearch:9300 \
    -e INVENTORY_URL=http://inventory:8080/micro/inventory \
-   --image-stream=catalog \
-   --as-deployment-config
+   --image-stream=catalog 
 
 oc expose svc/catalog

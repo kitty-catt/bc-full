@@ -51,8 +51,7 @@ sleep 10
 oc new-app --name=customercouchdb \
    -e COUCHDB_USER=$COUCHDB_USER \
    -e COUCHDB_PASSWORD=$COUCHDB_PASSWORD \
-   --docker-image=couchdb:2.1.2 \
-   --as-deployment-config
+   --docker-image=couchdb:2.1.2 
 
 oc patch dc/customercouchdb --patch '{"spec":{"template":{"spec":{"serviceAccountName": "couchdb"}}}}'
 
