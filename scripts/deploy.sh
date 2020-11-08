@@ -9,3 +9,4 @@ bash $HERE/scripts/customers/deploy.sh
 bash $HERE/scripts/inventory/deploy.sh
 bash $HERE/scripts/orders/deploy.sh
 bash $HERE/scripts/web/deploy.sh
+bash $HERE/scripts/auth/deploy.sh
