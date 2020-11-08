@@ -30,6 +30,8 @@ Configure the yaml files in tekton-resources.
 
     vi tekton-resources/inventory-resources.yaml
     vi tekton-resources/catalog-resources.yaml
+    vi tekton-resources/customer-resources.yaml
+
 
 # Setup
 
