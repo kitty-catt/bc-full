@@ -43,7 +43,7 @@ The following commands will setup the namespace full-bc on your OCP4 cluster.
 When the script is run, then it will:
 - initialize the generic tekton pipeline.
 - install the mysql database for the inventory microservice [architecture](https://github.com/ibm-garage-ref-storefront/inventory-ms-spring). 
-- wait until the mysql database is up and ready, this will take a minute or 2 &#x1F534;.
+- wait until the mysql database is up and ready, this will take a minute or 2 &#x1F634;.
 - load the inventory database.
 - install the elastic search database for the catalog microservice [architecture](https://github.com/ibm-garage-ref-storefront/catalog-ms-spring)
 - install the CouchDB database for the customer microservice [architecture](https://github.com/ibm-garage-ref-storefront/customer-ms-spring)
