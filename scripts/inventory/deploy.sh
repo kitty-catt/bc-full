@@ -21,6 +21,6 @@ oc new-app \
 # -e MYSQL_USER=dbuser \
 # -e MYSQL_PASSWORD=password
 
-oc set env dc/inventory --from=cm/inventory
+oc set env deployment/inventory --from=cm/inventory
 
 oc expose svc/inventory
