@@ -1,4 +1,5 @@
 #!/bin/bash
+source ~/config
 
 echo "deploying microservices"
 export HERE=${PWD}

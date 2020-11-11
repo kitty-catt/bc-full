@@ -1,5 +1,5 @@
 #!/bin/bash
-
+source ~/config
 clear
 echo "Testing known endpoints"
 export HERE=${PWD}

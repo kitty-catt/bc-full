@@ -1,4 +1,5 @@
 #!/bin/bash
+source ~/config
 
 export HERE=${PWD}
 echo "Working from $HERE"
