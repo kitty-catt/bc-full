@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source $HERE/scripts/config
+source ~/config
 echo "Setting up generic openshift pipeline"
 
 oc apply -f $HERE/tekton-pipelines/pipeline.yaml 
