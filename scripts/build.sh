@@ -32,7 +32,6 @@ do
 done    
 
 echo "TARGET=$TARGET"
-exit
 
 bash $HERE/scripts/catalog/build.sh $TARGET
 bash $HERE/scripts/customers/build.sh $TARGET
