@@ -3,7 +3,7 @@
 echo "build orders"
 
 if [ $1 == "QUAY" ]; then
-   echo "TODO"   
+   oc create -f $HERE/tekton-pipeline-run/orders-run-quay.yaml 
 else
-   echo "TODO"   
+   oc create -f $HERE/tekton-pipeline-run/orders-run-auto.yaml   
 fi

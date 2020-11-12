@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1alpha1
 kind: PipelineRun
 metadata:
-  generateName: auth-pipeline-
+  generateName: auth-pipeline-quay-
 spec:
   serviceAccountName: appsody-sa
   timeout: "1h0m0s"  

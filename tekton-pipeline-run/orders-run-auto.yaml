@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1alpha1
 kind: PipelineRun
 metadata:
-  generateName: catalog-pipeline-quay-
+  generateName: orders-pipeline-internal-
 spec:
   serviceAccountName: appsody-sa
   timeout: "1h0m0s"  
@@ -10,7 +10,7 @@ spec:
   resources:
     - name: git-source
       resourceRef:
-        name: catalog-source
+        name: orders-source
     - name: docker-image
       resourceRef:
-        name: catalog-image-external
+        name: orders-image-internal
