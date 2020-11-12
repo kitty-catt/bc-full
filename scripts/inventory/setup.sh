@@ -11,7 +11,8 @@ oc new-app \
 -p MYSQL_USER=dbuser \
 -p MYSQL_PASSWORD=password \
 -p MYSQL_DATABASE=inventorydb \
--p MYSQL_VERSION=8.0 
+-p MYSQL_VERSION=8.0  \
+  -l app.kubernetes.io/part-of=inventory-subsystem
 
 # populate the DB
 curl https://raw.githubusercontent.com/kitty-catt/inventory-ms-spring/master/scripts/mysql_data.sql  -o /tmp/$WORKSPACE/mysql_data.sql

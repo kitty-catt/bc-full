@@ -30,7 +30,8 @@ oc new-app \
 -p MYSQL_PASSWORD=${ORDER_PASSWORD} \
 -p MYSQL_DATABASE=${ORDER_DATABASE} \
 -p MARIADB_VERSION=10.2 \
--p VOLUME_CAPACITY=1Gi
+-p VOLUME_CAPACITY=1Gi \
+  -l app.kubernetes.io/part-of=order-subsystem
 
 
 # populate the DB

@@ -11,7 +11,9 @@ echo "setup catalog"
 
 oc new-app --name=catalogelasticsearch \
    -e "discovery.type=single-node" \
-   --docker-image=docker.elastic.co/elasticsearch/elasticsearch:6.3.2
+   --docker-image=docker.elastic.co/elasticsearch/elasticsearch:6.3.2 \
+   -l app.kubernetes.io/part-of=catalog-subsystem
 
 # Not recommended
-oc expose svc catalogelasticsearch   
+oc expose svc catalogelasticsearch \
+  -l app.kubernetes.io/part-of=catalog-subsystem

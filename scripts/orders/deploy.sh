@@ -20,7 +20,8 @@ oc new-app \
  -e MYSQL_DATABASE=ordersdb \
  -e MYSQL_USER=dbuser \
  -e MYSQL_PASSWORD=password \
- -e HS256_KEY=${HS256_KEY}
+ -e HS256_KEY=${HS256_KEY}  \
+  -l app.kubernetes.io/part-of=order-subsystem
 
 # --as-deployment-config \
 #oc new-app \
@@ -32,4 +33,5 @@ oc new-app \
 # -e jwksIssuer="https://localhost:9444/oidc/endpoint/OP"
 
 
-oc expose svc/orders
+oc expose svc/orders \
+  -l app.kubernetes.io/part-of=order-subsystem

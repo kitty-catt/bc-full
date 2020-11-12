@@ -51,13 +51,17 @@ sleep 10
 oc new-app --name=customercouchdb \
    -e COUCHDB_USER=$COUCHDB_USER \
    -e COUCHDB_PASSWORD=$COUCHDB_PASSWORD \
-   --docker-image=couchdb:2.1.2 
+   --docker-image=couchdb:2.1.2  \
+  -l app.kubernetes.io/part-of=customer-subsystem
+
 
 echo "DANGER: CouchDB is currently ephemeral!"
 sleep 10
 
 oc patch deployment/customercouchdb --patch '{"spec":{"template":{"spec":{"serviceAccountName": "couchdb"}}}}'
 
-oc expose svc customercouchdb --port=5984
+oc expose svc customercouchdb --port=5984  \
+  -l app.kubernetes.io/part-of=customer-subsystem
+
 
 

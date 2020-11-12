@@ -7,13 +7,15 @@ oc create cm inventory \
   --from-literal MYSQL_PORT=3306 \
   --from-literal MYSQL_DATABASE=inventorydb \
   --from-literal MYSQL_USER=dbuser \
-  --from-literal MYSQL_PASSWORD=password
-
+  --from-literal MYSQL_PASSWORD=password  \
+  -l app.kubernetes.io/part-of=inventory-subsystem
 
 # Deploy the inventory service
 oc new-app \
  --name=inventory \
- --image-stream=inventory
+ --image-stream=inventory \
+ -l app.kubernetes.io/part-of=inventory-subsystem
+
 # --docker-image=quay.io/kitty_catt/inventory:latest
 # -e MYSQL_HOST=inventorymysql \
 # -e MYSQL_PORT=3306 \
@@ -21,6 +23,7 @@ oc new-app \
 # -e MYSQL_USER=dbuser \
 # -e MYSQL_PASSWORD=password
 
-oc set env deployment/inventory --from=cm/inventory
+oc set env deployment/inventory --from=cm/inventory 
 
-oc expose svc/inventory
+oc expose svc/inventory \
+  -l app.kubernetes.io/part-of=inventory-subsystem

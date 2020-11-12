@@ -20,6 +20,9 @@ oc new-app --name=customer \
  -e COUCHDB_PASSWORD=${COUCHDB_PASSWORD} \
  -e COUCHDB_DATABASE=customers \
  -e HS256_KEY=${HS256_KEY} \
-  --image-stream=customer 
+  --image-stream=customer  \
+  -l app.kubernetes.io/part-of=customer-subsystem
 
-oc expose svc/customer --port=8080
+oc expose svc/customer --port=8080 \
+  -l app.kubernetes.io/part-of=customer-subsystem
+
