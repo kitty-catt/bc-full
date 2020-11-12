@@ -53,6 +53,9 @@ oc new-app --name=customercouchdb \
    -e COUCHDB_PASSWORD=$COUCHDB_PASSWORD \
    --docker-image=couchdb:2.1.2 
 
+echo "DANGER: CouchDB is currently ephemeral!"
+sleep 10
+
 oc patch deployment/customercouchdb --patch '{"spec":{"template":{"spec":{"serviceAccountName": "couchdb"}}}}'
 
 oc expose svc customercouchdb --port=5984
