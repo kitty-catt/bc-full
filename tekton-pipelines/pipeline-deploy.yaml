@@ -5,7 +5,7 @@ metadata:
 spec:
   params:
   - name: image
-    default: ""
+    default: "kitty_catt/inventory"
   tasks:
     - name: quay-cve-check
       taskRef:
