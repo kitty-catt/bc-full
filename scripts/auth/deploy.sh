@@ -1,4 +1,5 @@
 #!/bin/bash
+source ~/config
 
 echo "deploy auth service for OAuth 2.0 authentication"
 
