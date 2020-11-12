@@ -4,11 +4,12 @@ source ~/config
 echo "Setting up generic openshift pipeline"
 
 # pipelines
-oc apply -f $HERE/tekton-pipelines/pipeline.yaml 
+oc apply -f $HERE/tekton-pipelines/pipeline-build.yaml 
+oc apply -f $HERE/tekton-pipelines/pipeline-deploy.yaml 
 
 # pipeline tasks
 oc apply -f $HERE/tekton-tasks/appsody-build-push.yaml 
-oc apply -f $HERE/tekton-tasks/quay-cve-check.yaml 
+oc apply -f $HERE/tekton-tasks/ibm-quay-cve-check.yaml 
 
 # service account
 oc create sa appsody-sa
