@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1alpha1
 kind: Pipeline
 metadata:
-  name: appsody-build-pipeline
+  name: build-pipeline
 spec:
   resources:
     - name: git-source
