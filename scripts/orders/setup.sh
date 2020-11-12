@@ -34,19 +34,19 @@ oc new-app \
 
 
 # populate the DB
-curl https://raw.githubusercontent.com/ibm-garage-ref-storefront/orders-ms-openliberty/master/scripts/mysql_data.sql -o /tmp/$WORKSPACE/order_mysql_data.sql
+#curl https://raw.githubusercontent.com/ibm-garage-ref-storefront/orders-ms-openliberty/master/scripts/mysql_data.sql -o /tmp/$WORKSPACE/order_mysql_data.sql
 
-opt=nope
-while [  "$opt" != "happy" ] ; do
-    POD=$(oc get po | grep -v deploy| grep ordersmysql | awk '{print $1}')
-    echo "found pod: $POD"
-    oc rsh $POD mysql -h127.0.0.1 -u${ORDER_USER} -p${ORDER_PASSWORD} ${ORDER_DATABASE} < /tmp/$WORKSPACE/order_mysql_data.sql 2>/dev/null
-    if [ 0 -eq $? ]; then
-        echo " order database initialized succesfully"
-        opt="happy"
-    else
-        NOW=$(date +%H:%M:%S)
-        echo "$NOW - order database not initialized yet, retry"
-        sleep 5
-    fi
-done
+#opt=nope
+#while [  "$opt" != "happy" ] ; do
+#    POD=$(oc get po | grep -v deploy| grep ordersmysql | awk '{print $1}')
+#    echo "found pod: $POD"
+#    oc rsh $POD mysql -h127.0.0.1 -u${ORDER_USER} -p${ORDER_PASSWORD} ${ORDER_DATABASE} < /tmp/$WORKSPACE/order_mysql_data.sql 2>/dev/null
+#    if [ 0 -eq $? ]; then
+#        echo " order database initialized succesfully"
+#        opt="happy"
+#    else
+#        NOW=$(date +%H:%M:%S)
+#        echo "$NOW - order database not initialized yet, retry"
+#        sleep 5
+#    fi
+#done

@@ -19,8 +19,8 @@ oc new-app \
  -e MYSQL_PORT=3306 \
  -e MYSQL_DATABASE=ordersdb \
  -e MYSQL_USER=dbuser \
- -e MYSQL_PASSWORD=password \ 
- -e HS256_KEY=$HS256_KEY
+ -e MYSQL_PASSWORD=password \
+ -e HS256_KEY=${HS256_KEY}
 
 # --as-deployment-config \
 #oc new-app \

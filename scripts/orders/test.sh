@@ -43,6 +43,8 @@ curl -i -H "Content-Type: application/json" -H "Authorization: Bearer ${jwt}" -X
 #echo "---------------------------------------------------------------------"
 # Get all orders 
 echo "getting order"
-curl -i -H "Authorization: Bearer ${jwt}" "http://$ROUTE/micro/orders"
+curl -H "Authorization: Bearer ${jwt}" "http://$ROUTE/micro/orders" -o result.json
+jq . result.json
+rm result.json
 
 #echo "---------------------------------------------------------------------"
