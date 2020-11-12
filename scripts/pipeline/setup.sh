@@ -3,9 +3,14 @@
 source ~/config
 echo "Setting up generic openshift pipeline"
 
+# pipelines
 oc apply -f $HERE/tekton-pipelines/pipeline.yaml 
-oc apply -f $HERE/tekton-tasks/appsody-build-push.yaml 
 
+# pipeline tasks
+oc apply -f $HERE/tekton-tasks/appsody-build-push.yaml 
+oc apply -f $HERE/tekton-tasks/quay-cve-check.yaml 
+
+# service account
 oc create sa appsody-sa
 
 # Note: the sleep will give OCP time to create the service account, and that is necessary for allocating the role binding.
