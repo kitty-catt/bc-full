@@ -7,9 +7,8 @@ oc create cm inventory \
   --from-literal MYSQL_PORT=3306 \
   --from-literal MYSQL_DATABASE=inventorydb \
   --from-literal MYSQL_USER=dbuser \
-  --from-literal MYSQL_PASSWORD=password  \
-  -l app.kubernetes.io/part-of=inventory-subsystem
-
+  --from-literal MYSQL_PASSWORD=password  
+  
 # Deploy the inventory service
 oc new-app \
  --name=inventory \
