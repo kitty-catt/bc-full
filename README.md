@@ -22,7 +22,7 @@ Get yourself a free Openshift 4 cluster for a couple of hours:
 ## Operators
 
 1. deploy the openshift pipeline operator (in openshift);
-2. deploy the appsody operator (in openshift);
+2. deploy the appsody operator (in openshift); (TODO: should be possible to do without)
 
 ## Pipeline Resources
 
