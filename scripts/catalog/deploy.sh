@@ -13,12 +13,12 @@ echo "deploy catalog"
 #inventory              ClusterIP   172.21.49.223    <none>        8080/TCP,8443/TCP,8778/TCP   37m
 #inventorymysql         ClusterIP   172.21.245.138   <none>        3306/TCP                     68m
 
-oc new-app --name=catalog \
+oc new-app --name=catalog-ms-spring \
    -e ELASTIC_CLUSTER_NAME=docker-cluster \
    -e ELASTIC_NODE_URL=catalogelasticsearch:9300 \
    -e INVENTORY_URL=http://inventory:8080/micro/inventory \
    --image-stream=catalog \
    -l app.kubernetes.io/part-of=catalog-subsystem
 
-oc expose svc/catalog \
+oc expose svc/catalog-ms-spring \
   -l app.kubernetes.io/part-of=catalog-subsystem
