@@ -3,7 +3,7 @@
 echo "build web frontend"
 
 if [ $1 == "QUAY" ]; then
-   echo "TODO"
+   oc create -f $HERE/tekton-pipeline-run/web-run-quay.yaml
 else
-   echo "TODO"   
+   oc create -f $HERE/tekton-pipeline-run/web-run-auto.yaml
 fi
