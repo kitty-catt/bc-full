@@ -11,6 +11,8 @@ oc new-app --name=web \
    --image-stream=web \
    -l app.kubernetes.io/part-of=web-subsystem
 
+oc patch svc web -p '{"spec": {"ports": [{"port": 3000,"targetPort": 3000,"name": "node"}],"type": "LoadBalancer"}}'
+
 oc expose svc/web \
   -l app.kubernetes.io/part-of=web-subsystem \
   --port=3000
