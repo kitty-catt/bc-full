@@ -25,6 +25,9 @@ oc create secret docker-registry quay-cred \
     --docker-password=${QUAY_PWD} \
     --docker-email=${QUAY_EMAIL}
 
+oc create secret generic quay-api-token \
+    --from-literal API_TOKEN=${QUAY_API_TOKEN}
+
 oc secrets link appsody-sa quay-cred
 #oc describe sa appsody-sa
 
