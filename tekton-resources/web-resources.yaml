@@ -27,6 +27,6 @@ items:
     - name: revision
       value: master
     - name: url
-      value: https://github.com/ibm-garage-ref-storefront/storefront-ui
+      value: https://github.com/kitty-catt/storefront-ui
     type: git
 kind: List
