@@ -7,6 +7,7 @@ OCNEWAPP_OPTION='--as-deployment-config'
 QUAY_PWD=
 QUAY_USER=
 QUAY_EMAIL=
+QUAY_API_TOKEN=
 
 # Customer MS plus its CouchDB
 # https://github.com/ibm-garage-ref-storefront/customer-ms-spring#1-create-a-temporary-hs256-shared-secret
