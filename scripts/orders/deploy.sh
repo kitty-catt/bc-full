@@ -12,7 +12,7 @@ echo "deploy orders"
 #-e HS256_KEY=<Paste HS256 key here>"
 
 oc new-app \
- --name=orders \
+ --name=orders-ms-spring \
  ${OCNEWAPP_OPTION} \
  --image-stream=orders \
  -e MYSQL_HOST=ordersmysql \
@@ -33,5 +33,5 @@ oc new-app \
 # -e jwksIssuer="https://localhost:9444/oidc/endpoint/OP"
 
 
-oc expose svc/orders \
+oc expose svc/orders-ms-spring \
   -l app.kubernetes.io/part-of=order-subsystem

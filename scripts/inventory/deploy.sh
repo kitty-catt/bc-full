@@ -11,7 +11,7 @@ oc create cm inventory \
   
 # Deploy the inventory service
 oc new-app \
- --name=inventory \
+ --name=inventory-ms-spring \
  --image-stream=inventory \
  -l app.kubernetes.io/part-of=inventory-subsystem
 
@@ -22,7 +22,7 @@ oc new-app \
 # -e MYSQL_USER=dbuser \
 # -e MYSQL_PASSWORD=password
 
-oc set env deployment/inventory --from=cm/inventory 
+oc set env deployment/inventory-ms-spring --from=cm/inventory 
 
-oc expose svc/inventory \
+oc expose svc/inventory-ms-spring \
   -l app.kubernetes.io/part-of=inventory-subsystem

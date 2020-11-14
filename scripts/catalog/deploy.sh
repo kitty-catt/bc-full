@@ -16,7 +16,7 @@ echo "deploy catalog"
 oc new-app --name=catalog-ms-spring \
    -e ELASTIC_CLUSTER_NAME=docker-cluster \
    -e ELASTIC_NODE_URL=catalogelasticsearch:9300 \
-   -e INVENTORY_URL=http://inventory:8080/micro/inventory \
+   -e INVENTORY_URL=http://inventory-ms-spring:8080/micro/inventory \
    --image-stream=catalog \
    -l app.kubernetes.io/part-of=catalog-subsystem
 

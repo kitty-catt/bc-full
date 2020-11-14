@@ -12,7 +12,7 @@ source ~/config
 # -e COUCHDB_DATABASE=customers 
 # -e HS256_KEY=E6526VJkKYhyTFRFMC0pTECpHcZ7TGcq8pKsVVgz9KtESVpheEO284qKzfzg8HpWNBPeHOxNGlyudUHi6i8tFQJXC8PiI48RUpMh23vPDLGD35pCM0417gf58z5xlmRNii56fwRCmIhhV7hDsm3KO2jRv4EBVz7HrYbzFeqI45CaStkMYNipzSm2duuer7zRdMjEKIdqsby0JfpQpykHmC5L6hxkX0BT7XWqztTr6xHCwqst26O0g8r7bXSYjp4a"
 
-oc new-app --name=customer \
+oc new-app --name=customer-ms-spring \
  -e COUCHDB_PORT=5984 \
  -e COUCHDB_HOST=customercouchdb \
  -e COUCHDB_PROTOCOL=http \
@@ -23,6 +23,6 @@ oc new-app --name=customer \
   --image-stream=customer  \
   -l app.kubernetes.io/part-of=customer-subsystem
 
-oc expose svc/customer --port=8080 \
+oc expose svc/customer-ms-spring --port=8080 \
   -l app.kubernetes.io/part-of=customer-subsystem
 
