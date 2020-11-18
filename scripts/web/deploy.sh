@@ -2,8 +2,10 @@
 
 echo "deploy web frontend"
 
+export ROUTE=$(oc get route | grep auth-ms-spring | awk  '{ print $2}')
+
 oc new-app --name=web \
-   -e AUTH_HOST=auth-ms-spring -e AUTH_PORT=8080 \
+   -e AUTH_HOST=$ROUTE  \
    -e CATALOG_HOST=catalog-ms-spring -e CATALOG_PORT=8080 \
    -e CUSTOMER_HOST=customer-ms-spring -e CUSTOMER_PORT=8080 \
    -e ORDERS_HOST=orders-ms-spring -e ORDERS_PORT=8080 \
