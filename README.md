@@ -67,6 +67,10 @@ Deploy the microservices.
     bash scripts/deploy.sh
 
 
+Note: in the OCP console you can inspect the status of the deployments in the namespace (default = full-bc)
+
+    oc whoami --show-console
+
 # Test
 
 Test the microservices.
