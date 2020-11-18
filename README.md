@@ -28,7 +28,7 @@ Note: the appsody operator is not necessary as the pipeline only does an appsody
 
 ## Pipeline Resources
 
-Configure the yaml files in tekton-resources.
+Configure the yaml files in tekton-resources (only if you want to push to your own quay account of build from your own forks).
 
     vi tekton-resources/inventory-resources.yaml
     vi tekton-resources/catalog-resources.yaml
