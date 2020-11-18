@@ -56,6 +56,10 @@ Build the container images via the
 
     bash scripts/build.sh
 
+Wait till the build gets in state completed:
+
+    watch "oc get po | grep pipeline"
+
 # Deploy
 
 Deploy the microservices.
