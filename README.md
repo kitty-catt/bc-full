@@ -16,13 +16,15 @@ Get yourself a free Openshift 4 cluster for a couple of hours:
 
     git clone https://github.com/kitty-catt/bc-full.git
     cd bc-full   
-    cp scripts/config ~/config
+    cp scripts/config ~/config.bc-full
+    ln -sf ~/config.bc-full ~/config
     vi ~/config
 
 ## Operators
 
 1. deploy the openshift pipeline operator (in openshift);
-2. deploy the appsody operator (in openshift); (TODO: should be possible to do without)
+
+Note: the appsody operator is not necessary as the pipeline only does an appsody build.
 
 ## Pipeline Resources
 
