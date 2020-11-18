@@ -20,6 +20,7 @@ oc new-app --name=customer-ms-spring \
  -e COUCHDB_PASSWORD=${COUCHDB_PASSWORD} \
  -e COUCHDB_DATABASE=customers \
  -e HS256_KEY=${HS256_KEY} \
+ -e CUSTOMER_URL="http://customer-ms-spring:8080/micro/customer/search"
   --image-stream=customer  \
   -l app.kubernetes.io/part-of=customer-subsystem
 
