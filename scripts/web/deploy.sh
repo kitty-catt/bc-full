@@ -13,6 +13,8 @@ cp $HERE/scripts/web/production-input.json \
 
 sed -i "s/auth-ms-spring:8080/$ROUTE/" $HERE/scripts/web/production.json
 
+oc delete cm config 2>/dev/null
+
 oc create cm config \
  --from-file=$HERE/scripts/web/production.json \
  --from-file=$HERE/scripts/web/default.json \
