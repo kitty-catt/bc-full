@@ -23,7 +23,7 @@ curl -X POST -i "http://$ROUTE/micro/customer/add" -H "Content-Type: application
 
 # search a customer using the admin token
 #curl -s -X GET "http://$ROUTE/micro/customer/search?username=${TEST_USER}" -H 'Content-type: application/json' -H "${jwt}" 
-curl -s -X GET "http://$ROUTE/micro/customer/search?username=${TEST_USER}" -H 'Content-type: application/json' -H "Authorization: Bearer ${jwt}" 
+curl -s -X GET "http://$ROUTE/micro/customer/search?username=${TEST_USER}" -H 'Content-type: application/json' -H "Authorization: Bearer ${jwt}" | jq .
 
 
 # precious hint: ... port 8082
