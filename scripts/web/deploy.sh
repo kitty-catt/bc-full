@@ -3,11 +3,10 @@
 echo "deploy web frontend"
 
 # Give it some time to manifest the route to the auth service
-sleep 30
-
+sleep 10
 export ROUTE=$(oc get route | grep auth-ms-spring | awk  '{ print $2}')
-
-#echo "ROUTE=>$ROUTE<"
+echo "ROUTE=>$ROUTE<"
+sleep 10
 
 cp $HERE/scripts/web/production-input.json \
    $HERE/scripts/web/production.json
