@@ -38,30 +38,30 @@ echo ""
 
 # DANGER 1: A root pod from the wild!
 # Limit the danger to this deployment.
-echo "DANGER: a root pod from the wild!"
-sleep 10
+#echo "DANGER: a root pod from the wild!"
+#sleep 10
 
-oc create sa couchdb
-oc adm policy add-scc-to-user anyuid -z couchdb
+#oc create sa couchdb
+#oc adm policy add-scc-to-user anyuid -z couchdb
 
 # DANGER 2: an easy to guess login.
 echo "DANGER: an easy to guess login in the default installation configuration!"
-sleep 10
+sleep 5
 
+# Level up from version 2 to 3 makes running as root redundant
 oc new-app --name=customercouchdb \
    -e COUCHDB_USER=$COUCHDB_USER \
    -e COUCHDB_PASSWORD=$COUCHDB_PASSWORD \
-   --docker-image=couchdb:2.1.2  \
+   --docker-image=couchdb:3.1.1  \
   -l app.kubernetes.io/part-of=customer-subsystem
 
+echo "WARNING: CouchDB is currently ephemeral! (the customer database does not survive a restart)"
+sleep 5
 
-echo "DANGER: CouchDB is currently ephemeral!"
-sleep 10
+#oc patch deployment/customercouchdb --patch '{"spec":{"template":{"spec":{"serviceAccountName": "couchdb"}}}}'
 
-oc patch deployment/customercouchdb --patch '{"spec":{"template":{"spec":{"serviceAccountName": "couchdb"}}}}'
-
-oc expose svc customercouchdb --port=5984  \
-  -l app.kubernetes.io/part-of=customer-subsystem
+#oc expose svc customercouchdb --port=5984  \
+#  -l app.kubernetes.io/part-of=customer-subsystem
 
 
 

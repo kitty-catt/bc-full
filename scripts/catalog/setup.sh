@@ -15,5 +15,5 @@ oc new-app --name=catalogelasticsearch \
    -l app.kubernetes.io/part-of=catalog-subsystem
 
 # Not recommended
-oc expose svc catalogelasticsearch \
-  -l app.kubernetes.io/part-of=catalog-subsystem
+#oc expose svc catalogelasticsearch \
+#  -l app.kubernetes.io/part-of=catalog-subsystem

@@ -35,11 +35,11 @@ bash $HERE/scripts/customers/setup.sh
 echo ""
 
 echo "-----------------------------------------------------------------------------"
-bash $HERE/scripts/inventory/setup.sh
+bash $HERE/scripts/orders/setup.sh
 echo ""
 
 echo "-----------------------------------------------------------------------------"
-bash $HERE/scripts/orders/setup.sh
+bash $HERE/scripts/inventory/setup.sh
 echo ""
 
 echo "-----------------------------------------------------------------------------"
@@ -49,3 +49,4 @@ echo ""
 echo "-----------------------------------------------------------------------------"
 bash $HERE/scripts/auth/setup.sh
 echo ""
+
