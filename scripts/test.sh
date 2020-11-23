@@ -6,16 +6,16 @@ export HERE=${PWD}
 #echo "Working from $HERE"
 
 echo "--------------------------------------------------------------------------------------------------"
-bash $HERE/scripts/catalog/test.sh
+#bash $HERE/scripts/catalog/test.sh
 echo "--------------------------------------------------------------------------------------------------"
-bash $HERE/scripts/customers/test.sh
+#bash $HERE/scripts/customers/test.sh
 echo "--------------------------------------------------------------------------------------------------"
-bash $HERE/scripts/inventory/test.sh
+#bash $HERE/scripts/inventory/test.sh
 echo "--------------------------------------------------------------------------------------------------"
-bash $HERE/scripts/orders/test.sh
+#bash $HERE/scripts/orders/test.sh
 echo "--------------------------------------------------------------------------------------------------"
-bash $HERE/scripts/web/test.sh
+#bash $HERE/scripts/web/test.sh
 echo "--------------------------------------------------------------------------------------------------"
-bash $HERE/scripts/auth/test.sh
+#bash $HERE/scripts/auth/test.sh
 echo "--------------------------------------------------------------------------------------------------"
 echo "Beware of endpoints that you do not know."

@@ -71,11 +71,13 @@ Note: in the OCP console you can inspect the status of the deployments in the na
 
     oc whoami --show-console
 
-# Test
 
-Test the microservices.
+# Make a user
 
-    bash scripts/test.sh
+Edit scripts/customers/make_user.sh if you want a different user than the default.
+
+    bash scripts/customers/make_user.sh
+
 
 # Tear Down
 
