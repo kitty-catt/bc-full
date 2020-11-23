@@ -74,8 +74,6 @@ Note: in the OCP console you can inspect the status of the deployments in the na
 
 # Make a user
 
-Edit scripts/customers/make_user.sh if you want a different user than the default.
-
     bash scripts/customers/make_user.sh
 
 
