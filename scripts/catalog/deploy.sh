@@ -20,5 +20,6 @@ oc new-app --name=catalog-ms-spring \
    --image-stream=catalog \
    -l app.kubernetes.io/part-of=catalog-subsystem
 
-oc expose svc/catalog-ms-spring \
-  -l app.kubernetes.io/part-of=catalog-subsystem
+# Reduce attack surface
+#oc expose svc/catalog-ms-spring \
+#  -l app.kubernetes.io/part-of=catalog-subsystem

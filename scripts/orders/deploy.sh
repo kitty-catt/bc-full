@@ -32,6 +32,6 @@ oc new-app \
 # -e dbuser=${ORDER_USER} -e dbpassword=${ORDER_PASSWORD} \
 # -e jwksIssuer="https://localhost:9444/oidc/endpoint/OP"
 
-
-oc expose svc/orders-ms-spring \
-  -l app.kubernetes.io/part-of=order-subsystem
+# Reduce attack surface
+#oc expose svc/orders-ms-spring \
+#  -l app.kubernetes.io/part-of=order-subsystem

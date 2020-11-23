@@ -23,6 +23,7 @@ oc new-app --name=customer-ms-spring \
   --image-stream=customer  \
   -l app.kubernetes.io/part-of=customer-subsystem
 
-oc expose svc/customer-ms-spring --port=8080 \
-  -l app.kubernetes.io/part-of=customer-subsystem
+# Reduce attack surface
+#oc expose svc/customer-ms-spring --port=8080 \
+#  -l app.kubernetes.io/part-of=customer-subsystem
 

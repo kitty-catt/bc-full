@@ -24,5 +24,6 @@ oc new-app \
 
 oc set env deployment/inventory-ms-spring --from=cm/inventory 
 
-oc expose svc/inventory-ms-spring \
-  -l app.kubernetes.io/part-of=inventory-subsystem
+# Reduce attack surface
+# oc expose svc/inventory-ms-spring \
+#  -l app.kubernetes.io/part-of=inventory-subsystem
