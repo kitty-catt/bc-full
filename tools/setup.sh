@@ -1,3 +1,6 @@
+#!/bin/bash
+source ~/config
+
 oc new-project tools
 
 # Setup Openshift pipelines
@@ -14,4 +17,9 @@ cd sonarqube
 cd ..
 echo ""
 
-# TODO: setup Openshift service mesh
+# Setup httpd
+echo "###################################################################"
+cd httpd
+./silver-platter.sh 
+cd ..
+echo ""
