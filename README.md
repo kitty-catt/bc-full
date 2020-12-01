@@ -44,8 +44,9 @@ The following commands will setup the namespace full-bc on your OCP4 cluster.
 
 When the script is run, then it will install the pipeline and the foundational databases and load them. 
 
+# 3 Lets GO!
 
-# Build
+## a) Build the microservices
 
 Build the container images via the 
 
@@ -55,7 +56,7 @@ Wait till the build gets in state completed:
 
     watch "oc get po | grep pipeline"
 
-# Deploy
+## b) Deploy the microservices
 
 Deploy the microservices.
 
@@ -67,18 +68,18 @@ Note: in the OCP console you can inspect the status of the deployments in the na
     oc whoami --show-console
 
 
-# Make a user
+## c) Make a user
 
     bash scripts/customers/make_user.sh
 
-# Level up the routes from HTTP to HTTPS
+## d) Level up the routes from HTTP to HTTPS
 
 The default routes is are plain text http over tcp, ... so vulnerable to eavesdropping. Lets level them up to encrypted routes. 
 
     bash scripts/https-routes/level-up.sh
 
 
-# Tear Down
+# 4 Tear Down
 
    oc delete project full-bc
 
