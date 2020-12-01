@@ -44,7 +44,11 @@ The following commands will setup the namespace full-bc on your OCP4 cluster.
 
 When the script is run, then it will install the pipeline and the foundational databases and load them. 
 
+# Level up the routes from HTTP to HTTPS
 
+The default routes is are plain text http over tcp, ... so vulnerable to eavesdropping. Lets level them up to encrypted routes. 
+
+    bash scripts/https-routes/level-up.sh
 
 # Build
 
