@@ -1,7 +1,7 @@
 echo "###################################################################"
 oc new-project $NAMESPACE
 
-oc apply -f httpd/httpd-pvc.yaml 
+oc apply -f httpd-pvc.yaml 
 PVC_STATE="unknown"
 
 until [ $PVC_STATE == "Bound" ]; do
