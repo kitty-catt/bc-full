@@ -23,11 +23,11 @@ Get yourself a free Openshift 4 cluster for a couple of hours:
     vi ~/config
 
 
-## Operators
+# Setup Tools
 
-1. deploy the openshift pipeline operator (in openshift);
-
-Note: the appsody operator is not necessary as the pipeline only does an appsody build.
+    cd tools && \
+    bash setup.sh && \
+    cd .. 
 
 
 ## Pipeline Resources
