@@ -6,11 +6,13 @@ The following repositories are deployed: <br>
 
 [IBM blue compute](https://github.com/ibm-garage-ref-storefront/?q=storefront-ui+OR+spring&type=&language=)
 
+
 # Preparation
 
 Get yourself a free Openshift 4 cluster for a couple of hours:
 
 [IBM Open Labs](https://developer.ibm.com/openlabs/openshift)
+
 
 ## Configuration
 
@@ -20,19 +22,17 @@ Get yourself a free Openshift 4 cluster for a couple of hours:
     ln -sf ~/config.bc-full ~/config
     vi ~/config
 
+
 ## Operators
 
 1. deploy the openshift pipeline operator (in openshift);
 
 Note: the appsody operator is not necessary as the pipeline only does an appsody build.
 
+
 ## Pipeline Resources
 
-Configure the yaml files in tekton-resources (only if you want to push to your own quay account of build from your own forks).
-
-    vi tekton-resources/inventory-resources.yaml
-    vi tekton-resources/catalog-resources.yaml
-    vi tekton-resources/customer-resources.yaml
+Configure the yaml files in tekton-resources when you want to push to your own quay account of build from your own forks. Otherwise use the defaults.
 
 
 # Setup
@@ -42,13 +42,9 @@ The following commands will setup the namespace full-bc on your OCP4 cluster.
     oc login
     bash scripts/setup.sh
 
-When the script is run, then it will:
-- initialize the generic tekton pipeline.
-- install the mysql database for the inventory microservice [architecture](https://github.com/ibm-garage-ref-storefront/inventory-ms-spring). 
-- wait until the mysql database is up and ready, this will take a minute or 2 &#x1F634;.
-- load the inventory database.
-- install the elastic search database for the catalog microservice [architecture](https://github.com/ibm-garage-ref-storefront/catalog-ms-spring)
-- install the CouchDB database for the customer microservice [architecture](https://github.com/ibm-garage-ref-storefront/customer-ms-spring)
+When the script is run, then it will install the pipeline and the foundational databases and load them. 
+
+
 
 # Build
 
