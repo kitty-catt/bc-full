@@ -28,3 +28,4 @@ echo $SP
 sleep 15
 
 oc rsh $SP bash -c "mkdir -pv /var/www/html/sites"
+oc cp index.html $SP:/var/www/html/index.html -c silver-platter
