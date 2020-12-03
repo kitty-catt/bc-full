@@ -78,6 +78,14 @@ The default routes is are plain text http over tcp, ... so vulnerable to eavesdr
 
     bash scripts/https-routes/level-up.sh
 
+## e)
+
+There is an experimental pipeline that will scan the customer-ms-spring microservices based on the NIST CVE database.
+
+    oc apply -f tekton-tasks/kabanero-maven.yaml
+    oc apply -f tekton-pipelines/pipeline-report.yaml
+    oc create -f tekton-pipeline-run/customer-run-experimental.yaml 
+
 
 # 4 Tear Down
 
