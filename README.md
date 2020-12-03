@@ -78,9 +78,9 @@ The default routes is are plain text http over tcp, ... so vulnerable to eavesdr
 
     bash scripts/https-routes/level-up.sh
 
-## e)
+## e) Experimental pipeline
 
-There is an experimental pipeline that will scan the customer-ms-spring microservices based on the NIST CVE database.
+There is an experimental pipeline that will scan the customer-ms-spring microservices based on the NIST CVE database. The maven build will use the org.owasp.dependency-check-maven plugin to generate a maven site report. The report is presented on the silver-platter deployment that was created during the tools setup.
 
     oc apply -f tekton-tasks/kabanero-maven.yaml
     oc apply -f tekton-pipelines/pipeline-report.yaml
