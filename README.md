@@ -25,6 +25,7 @@ Get yourself a free Openshift 4 cluster for a couple of hours:
 
 ## b) Setup Tools
 
+    oc login
     cd tools && \
     bash setup.sh && \
     cd .. 
