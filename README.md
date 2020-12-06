@@ -87,6 +87,22 @@ There is an experimental pipeline that will scan the customer-ms-spring microser
     oc apply -f tekton-pipelines/pipeline-report.yaml
     oc create -f tekton-pipeline-run/customer-run-experimental.yaml 
 
+## f) Experiment with auth-ms-openliberty microservice
+
+Note: not ready, will break the shop login in its current state.
+
+    bash scripts/auth-ms-openliberty/level-up.sh 
+
+Test:
+
+Note: this is  what I want to see working:
+
+    AUTHMS=$(oc get routes | grep auth-ms-openliberty | awk '{ print $2 }')
+    curl -i -k -d "grant_type=password&client_id=bluecomputeweb&client_secret=bluecomputewebs3cret&username=foo&password=bar&scope=openid" https://$AUTHMS/oidc/endpoint/OP/token 
+
+Note: is via oc port-forward that I can get the token via curl.
+
+
 
 # 4 Tear Down
 
