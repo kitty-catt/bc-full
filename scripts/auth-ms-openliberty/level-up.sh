@@ -43,7 +43,9 @@ oc set volume deployment/auth-ms-openliberty --add --type=secret --mount-path=/o
 echo "*** DELETING THE KEYS *** "
 rm -Rf /tmp/$NAMESPACE
 
-oc expose svc/auth-ms-openliberty --port=9443 \
-  -l app.kubernetes.io/part-of=auth-subsystem
+#oc expose svc/auth-ms-openliberty --port=9443 \
+#  -l app.kubernetes.io/part-of=auth-subsystem
+
+oc create route passthrough --service=auth-ms-openliberty
 
 cd -
