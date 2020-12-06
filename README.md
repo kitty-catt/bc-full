@@ -73,13 +73,15 @@ Note: in the OCP console you can inspect the status of the deployments in the na
 
     bash scripts/customers/make_user.sh
 
-## d) Level up the routes from HTTP to HTTPS
+# Levelling up
+
+## a) Level up the routes from HTTP to HTTPS
 
 The default routes is are plain text http over tcp, ... so vulnerable to eavesdropping. Lets level them up to encrypted routes. 
 
     bash scripts/https-routes/level-up.sh
 
-## e) Experimental pipeline
+## b) Experimental pipeline to scan on CVE's
 
 There is an experimental pipeline that will scan the customer-ms-spring microservices based on the NIST CVE database. The maven build will use the org.owasp.dependency-check-maven plugin to generate a maven site report. The report is presented on the silver-platter deployment that was created during the tools setup.
 
@@ -87,15 +89,13 @@ There is an experimental pipeline that will scan the customer-ms-spring microser
     oc apply -f tekton-pipelines/pipeline-report.yaml
     oc create -f tekton-pipeline-run/customer-run-experimental.yaml 
 
-## f) Experiment with auth-ms-openliberty microservice
+## c) Experiment with auth-ms-openliberty microservice
 
-Note: not ready, will break the shop login in its current state.
+Note: not quite ready, will break the shop login in its current state. Need to reconfigure shop.
 
     bash scripts/auth-ms-openliberty/level-up.sh 
 
 Test:
-
-Note: this is  what I want to see working:
 
     AUTHMS=$(oc get routes | grep auth-ms-openliberty | awk '{ print $2 }')
     curl -k -d "grant_type=password&client_id=bluecomputeweb&client_secret=bluecomputewebs3cret&username=foo&password=bar&scope=openid" https://$AUTHMS/oidc/endpoint/OP/token | jq .
