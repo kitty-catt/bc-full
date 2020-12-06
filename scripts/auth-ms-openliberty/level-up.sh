@@ -11,11 +11,20 @@ keytool -genkeypair -dname "cn=bc.ibm.com, o=User, ou=IBM, c=US" -alias bckey -k
 keytool -list -keystore ./BCKeyStoreFile.p12 -storepass password
 keytool -export -alias bckey -file client.cer -keystore ./BCKeyStoreFile.p12 -storepass password
 keytool -import -v -trustcacerts -alias bckey -file client.cer -keystore ./truststore.p12 -storepass password -noprompt
+cd -
 
 echo "*** BUILDING IMAGE *** "
 
 oc apply -f tekton-resources/auth-resources-liberty.yaml
 oc create -f tekton-pipeline-run/auth-run-auto.yaml
+
+IS="NoK"
+
+until [ "$IS" == "auth-ms-openliberty" ]; do
+    IS=$(oc get is | grep auth-ms-openliberty | awk '{ print $1 }')
+    echo "waiting for build to complete, image found: " $IS
+    sleep 5
+done
 
 echo "*** REMOVING OLD MICROSERVICES *** "
 
@@ -46,6 +55,6 @@ rm -Rf /tmp/$NAMESPACE
 #oc expose svc/auth-ms-openliberty --port=9443 \
 #  -l app.kubernetes.io/part-of=auth-subsystem
 
-oc create route passthrough --service=auth-ms-openliberty
+oc create route passthrough --service=auth-ms-openliberty --port=9443
 
-cd -
+

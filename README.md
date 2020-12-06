@@ -100,9 +100,9 @@ Note: this is  what I want to see working:
     AUTHMS=$(oc get routes | grep auth-ms-openliberty | awk '{ print $2 }')
     curl -i -k -d "grant_type=password&client_id=bluecomputeweb&client_secret=bluecomputewebs3cret&username=foo&password=bar&scope=openid" https://$AUTHMS/oidc/endpoint/OP/token 
 
-Note: is via oc port-forward that I can get the token via curl.
+Note: is via oc port-forward on port 9443 that I can get the token via curl.
 
-
+curl -k -d "grant_type=password&client_id=bluecomputeweb&client_secret=bluecomputewebs3cret&username=foo&password=bar&scope=openid" https://localhost:9443/oidc/endpoint/OP/token
 
 # 4 Tear Down
 
