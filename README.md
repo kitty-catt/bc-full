@@ -89,9 +89,9 @@ There is an experimental pipeline that will scan the customer-ms-spring microser
     oc apply -f tekton-pipelines/pipeline-report.yaml
     oc create -f tekton-pipeline-run/customer-run-experimental.yaml 
 
-Note: auth-ms-liberty is work in progress.
+Note: auth-ms-liberty is not working.
 
-    # oc apply -f tekton-resources/auth-ms-liberty-resources.yaml
+    # oc apply -f tekton-resources/auth-ms-liberty-resources-fork.yaml
     # oc create -f tekton-pipeline-run/auth-ms-liberty-run-experimental.yaml 
 
 ## c) Experiment with auth-ms-openliberty microservice
