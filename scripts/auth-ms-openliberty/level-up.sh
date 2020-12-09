@@ -57,4 +57,23 @@ rm -Rf /tmp/$NAMESPACE
 
 oc create route passthrough --service=auth-ms-openliberty --port=9443
 
+export ROUTE=$(oc get route | grep auth-ms-openliberty | awk  '{ print $2}')
+echo "ROUTE=>$ROUTE<"
 
+cp $HERE/scripts/web/production-input-secure.json \
+   $HERE/scripts/web/production.json
+
+sed -i "s/auth-ms-spring:8080/$ROUTE/" $HERE/scripts/web/production.json
+
+oc delete cm config 2>/dev/null
+
+oc create cm config \
+ --from-file=$HERE/scripts/web/production.json \
+ --from-file=$HERE/scripts/web/default.json \
+ --from-file=$HERE/scripts/web/checks
+
+oc set volume deployment/web --remove --name=production-config
+sleep 10
+oc set volume deployment/web --add --type=configmap --mount-path=/project/user-app/config/ --configmap-name=config --name=production-config 
+
+rm $HERE/scripts/web/production.json
