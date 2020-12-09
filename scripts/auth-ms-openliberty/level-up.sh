@@ -16,7 +16,7 @@ cd -
 echo "*** BUILDING IMAGE *** "
 
 oc apply -f tekton-resources/auth-ms-liberty-resources.yaml
-oc create -f tekton-pipeline-run/auth-ms-liberty-run-experimental.yaml
+oc create -f tekton-pipeline-run/auth-ms-liberty-run.yaml 
 
 IS="NoK"
 

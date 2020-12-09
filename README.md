@@ -87,9 +87,12 @@ There is an experimental pipeline that will scan the customer-ms-spring microser
 
     oc apply -f tekton-tasks/kabanero-maven.yaml
     oc apply -f tekton-pipelines/pipeline-report.yaml
-    oc apply -f tekton-resources/auth-ms-liberty-resources.yaml
     oc create -f tekton-pipeline-run/customer-run-experimental.yaml 
-    oc create -f tekton-pipeline-run/auth-ms-liberty-run-experimental.yaml 
+
+Note: auth-ms-liberty is work in progress.
+
+    # oc apply -f tekton-resources/auth-ms-liberty-resources.yaml
+    # oc create -f tekton-pipeline-run/auth-ms-liberty-run-experimental.yaml 
 
 ## c) Experiment with auth-ms-openliberty microservice
 
