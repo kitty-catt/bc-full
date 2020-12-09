@@ -3,7 +3,7 @@ items:
 - apiVersion: tekton.dev/v1alpha1
   kind: PipelineResource
   metadata:
-    name: auth-image-internal
+    name: auth-ms-liberty-image-internal
   spec:
     params:
     - name: url
@@ -12,7 +12,7 @@ items:
 - apiVersion: tekton.dev/v1alpha1
   kind: PipelineResource
   metadata:
-    name: auth-image-external
+    name: auth-ms-liberty-image-external
   spec:
     params:
     - name: url
@@ -21,7 +21,7 @@ items:
 - apiVersion: tekton.dev/v1alpha1
   kind: PipelineResource
   metadata:
-    name: auth-source
+    name: auth-ms-liberty-source
   spec:
     params:
     - name: revision
