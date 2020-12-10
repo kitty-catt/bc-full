@@ -13,6 +13,12 @@ Get yourself a free Openshift 4 cluster for a couple of hours:
 
 [IBM Open Labs](https://developer.ibm.com/openlabs/openshift)
 
+Get the login (right top side of the OCP console, IAM, copy login command).
+
+Login to the cluster:
+
+    oc login --token=... --server=...
+
 
 ## a) Configuration
 
@@ -25,7 +31,6 @@ Get yourself a free Openshift 4 cluster for a couple of hours:
 
 ## b) Setup Tools
 
-    oc login
     cd tools && \
     bash setup.sh && \
     cd .. 
@@ -40,7 +45,6 @@ Configure the yaml files in tekton-resources when you want to push to your own q
 
 The following commands will setup the namespace full-bc on your OCP4 cluster.
 
-    oc login
     bash scripts/setup.sh
 
 When the script is run, then it will install the pipeline and the foundational databases and load them. 
@@ -85,11 +89,11 @@ The default routes is are plain text http over tcp, ... so vulnerable to eavesdr
 
 There is an experimental pipeline that will scan the customer-ms-spring microservices based on the NIST CVE database. The maven build will use the org.owasp.dependency-check-maven plugin to generate a maven site report. The report is presented on the silver-platter deployment that was created during the tools setup.
 
-    oc apply -f tekton-tasks/kabanero-maven.yaml
-    oc apply -f tekton-pipelines/pipeline-report.yaml
+    oc apply -f oc apply -f tekton-tasks/kabanero-spring-boot2.yaml
+    oc apply -f tekton-pipelines/pipeline-report-spring-boot2.yaml
     oc create -f tekton-pipeline-run/customer-run-experimental.yaml 
 
-Note: auth-ms-liberty is not working.
+Note: auth-ms-liberty is not working. Need to build using openliberty.
 
     # oc apply -f tekton-resources/auth-ms-liberty-resources-fork.yaml
     # oc create -f tekton-pipeline-run/auth-ms-liberty-run-experimental.yaml 

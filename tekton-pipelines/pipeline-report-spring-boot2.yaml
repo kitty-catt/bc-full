@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1alpha1
 kind: Pipeline
 metadata:
-  name: report-pipeline
+  name: report-pipeline-spring-boot2
 spec:
   resources:
     - name: git-source
@@ -12,7 +12,7 @@ spec:
   tasks:
     - name: site
       taskRef:
-        name: kabanero-maven-task
+        name: kabanero-spring-boot2-task
       resources:
         inputs:
         - name: git-source

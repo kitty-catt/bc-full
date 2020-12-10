@@ -9,7 +9,7 @@ spec:
   serviceAccountName: appsody-sa
   timeout: "1h0m0s"  
   pipelineRef:
-    name: report-pipeline
+    name: report-pipeline-spring-boot2
   resources:
     - name: git-source
       resourceRef:
