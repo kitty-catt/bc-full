@@ -57,6 +57,12 @@ rm -Rf /tmp/$NAMESPACE
 
 oc create route passthrough --service=auth-ms-openliberty --port=9443
 
+# Last minute
+oc annotate route auth-ms-openliberty --overwrite haproxy.router.openshift.io/rate-limit-connections=true
+oc annotate route auth-ms-openliberty --overwrite haproxy.router.openshift.io/rate-limit-connections.concurrent-tcp=1
+oc annotate route auth-ms-openliberty --overwrite haproxy.router.openshift.io/rate-limit-connections.rate-http=1
+oc annotate route auth-ms-openliberty --overwrite haproxy.router.openshift.io/rate-limit-connections.rate-tcp=1
+
 export ROUTE=$(oc get route | grep auth-ms-openliberty | awk  '{ print $2}')
 echo "ROUTE=>$ROUTE<"
 
