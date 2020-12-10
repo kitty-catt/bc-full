@@ -89,13 +89,16 @@ The default routes is are plain text http over tcp, ... so vulnerable to eavesdr
 
 There is an experimental pipeline that will scan the customer-ms-spring microservices based on the NIST CVE database. The maven build will use the org.owasp.dependency-check-maven plugin to generate a maven site report. The report is presented on the silver-platter deployment that was created during the tools setup.
 
+### spring-boot2
+
     oc apply -f oc apply -f tekton-tasks/kabanero-spring-boot2.yaml
     oc apply -f tekton-pipelines/pipeline-report-spring-boot2.yaml
     oc create -f tekton-pipeline-run/customer-run-experimental.yaml 
 
-Note: auth-ms-liberty is not working. Need to build using openliberty.
+### java-openliberty
 
-    # oc apply -f tekton-resources/auth-ms-liberty-resources-fork.yaml
+    oc create -f tekton-pipelines/pipeline-report-java-liberty.yaml 
+    oc apply -f tekton-resources/auth-ms-liberty-resources-fork.yaml
     # oc create -f tekton-pipeline-run/auth-ms-liberty-run-experimental.yaml 
 
 ## c) Experiment with auth-ms-openliberty microservice
