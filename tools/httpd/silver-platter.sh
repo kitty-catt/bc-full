@@ -43,4 +43,7 @@ oc extract secret/$CERTS_SECRET -n ibm-cert-store --confirm
 
 oc create route edge --service=silver-platter --cert=tls.crt --key=tls.key --port=8080
 
+# automatically level up HTTP to HTTPS
+oc annotate route silver-platter --overwrite haproxy.router.openshift.io/hsts_header="max-age=31536000;includeSubDomains;preload"
+
 rm -Rf /tmp/$WORKSPACE/certs
