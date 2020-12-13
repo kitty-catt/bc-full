@@ -5,7 +5,7 @@ echo "building images"
 export HERE=${PWD}
 echo "Working from $HERE"
 
-echo "Select a build repository"
+echo "Select a target image registry"
 echo
 
 # PS3 is an environment variable
