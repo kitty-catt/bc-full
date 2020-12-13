@@ -107,7 +107,6 @@ There is an experimental pipeline that will scan the customer-ms-spring microser
 
     oc create -f tekton-tasks/kabanero-spring-boot2.yaml
     oc apply -f tekton-pipelines/pipeline-report-spring-boot2.yaml
-    oc create -f tekton-pipeline-run/customer-run-experimental.yaml
     oc create -f tekton-pipeline-run/auth-run-experimental.yam
 
 ### java-openliberty (does not work yet)
