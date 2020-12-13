@@ -60,13 +60,18 @@ The following commands will setup the namespace full-bc on your OCP4 cluster.
 
     bash scripts/setup.sh
 
+Note: only building the forks was tested at this time.
+
 When the script is run, then it will install:
 1. the pipelines (with all tekton ***);
 2. the foundational databases and load them (it will take about 1 or 2 minutes until the database is ready). 
 
 Check what you can build with:
 
-    tkn resource list
+    tkn resource list | grep source
+    tkn resource list | grep internal
+    kkn resource list | grep external
+
 
 # 3 Lets GO!
 
