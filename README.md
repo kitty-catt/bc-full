@@ -50,12 +50,14 @@ The following commands will setup the namespace full-bc on your OCP4 cluster.
 When the script is run, then it will install:
 1. the pipeline 
 2. the foundational databases and load them (it will take about 1 or 2 minutes until the database is ready). 
-3. create an apache httpd server called the silver platter where reports are stored of maven site scan, and jmeter runs.
+3. create an apache httpd server called the silver platter where reports are stored of maven site scans, and jmeter runs.
 
 Make a user to access the silver platter:
 
     bash tools/httpd/provide_access.sh
-    
+
+Note: the site scan will reveal vulnerabilities in the dependencies and source. That something to consider when you were to apply such a setup on your customers code, ... 
+
 
 # 3 Lets GO!
 
