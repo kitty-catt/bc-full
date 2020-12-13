@@ -32,4 +32,15 @@ oc cp index.html $SP:/var/www/html/index.html -c silver-platter
 oc cp .htaccess $SP:/var/www/html/.htaccess -c silver-platter
 
 # Make a secure route
-oc expose svc silver-platter
+# oc expose svc silver-platter
+
+mkdir -pv /tmp/$WORKSPACE/certs
+cd /tmp/$WORKSPACE/certs
+
+CERTS_SECRET=$(oc get secrets -n ibm-cert-store | grep "tls" | grep "dte" | awk '{print $1 }')
+
+oc extract secret/$CERTS_SECRET -n ibm-cert-store --confirm
+
+oc create route edge --service=silver-platter --cert=tls.crt --key=tls.key --port=8080
+
+rm -Rf /tmp/$WORKSPACE/certs
