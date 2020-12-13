@@ -34,9 +34,40 @@ oc secrets link appsody-sa quay-cred
 oc secrets link default quay-cred  --for=pull
 #oc describe sa default
 
-oc apply -f $HERE/tekton-resources/inventory-resources.yaml
-oc apply -f $HERE/tekton-resources/catalog-resources.yaml
-oc apply -f $HERE/tekton-resources/customer-resources.yaml
-oc apply -f $HERE/tekton-resources/auth-resources.yaml
-oc apply -f $HERE/tekton-resources/orders-resources.yaml
-oc apply -f $HERE/tekton-resources/web-resources.yaml 
+echo "Select a source repository"
+echo
+
+# PS3 is an environment variable
+# that sets the menu prompt
+PS3="Choose a number: "
+
+# The select command creates the menu
+select CHOICE in official forks  Quit
+do
+    case $CHOICE in
+        "official")
+            oc apply -f $HERE/tekton-resources/auth-ms/auth-ms-spring-official.yaml 
+            oc apply -f $HERE/tekton-resources/catalog-ms/catalog-ms-spring-official.yaml
+            oc apply -f $HERE/tekton-resources/customer-ms/customer-ms-spring-official.yaml
+            oc apply -f $HERE/tekton-resources/inventory-ms/inventory-ms-spring-official.yaml
+            oc apply -f $HERE/tekton-resources/orders-ms/orders-ms-spring-official.yaml 
+            oc apply -f $HERE/tekton-resources/storefront-ms/storefront-ui-official.yaml
+            break
+            ;;
+        "forks")
+            oc apply -f $HERE/tekton-resources/auth-ms/auth-ms-spring-fork.yaml 
+            oc apply -f $HERE/tekton-resources/catalog-ms/catalog-ms-spring-fork.yaml
+            oc apply -f $HERE/tekton-resources/customer-ms/customer-ms-spring-fork.yaml
+            oc apply -f $HERE/tekton-resources/inventory-ms/inventory-ms-spring-fork.yaml
+            oc apply -f $HERE/tekton-resources/orders-ms/orders-ms-spring-fork.yaml 
+            oc apply -f $HERE/tekton-resources/storefront-ms/storefront-ui-fork.yaml
+            break
+            ;;
+        "Quit")
+            exit
+            ;;
+        *)  echo "Invalid Choice";;
+    esac
+done    
+
+

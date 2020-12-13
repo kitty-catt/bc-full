@@ -3,30 +3,30 @@ items:
 - apiVersion: tekton.dev/v1alpha1
   kind: PipelineResource
   metadata:
-    name: auth-ms-liberty-image-internal
+    name: customer-image-internal
   spec:
     params:
     - name: url
-      value: image-registry.openshift-image-registry.svc:5000/full-bc/auth-ms-openliberty
+      value: image-registry.openshift-image-registry.svc:5000/full-bc/customer
     type: image
 - apiVersion: tekton.dev/v1alpha1
   kind: PipelineResource
   metadata:
-    name: auth-ms-liberty-image-external
+    name: customer-image-external
   spec:
     params:
     - name: url
-      value: quay.io/kitty_catt/auth-ms-openliberty
+      value: quay.io/kitty_catt/customer
     type: image    
 - apiVersion: tekton.dev/v1alpha1
   kind: PipelineResource
   metadata:
-    name: auth-ms-liberty-source
+    name: customer-source
   spec:
     params:
     - name: revision
       value: master
     - name: url
-      value: https://github.com/ibm-garage-ref-storefront/auth-ms-openliberty
+      value: https://github.com/ibm-garage-ref-storefront/customer-ms-spring
     type: git
 kind: List

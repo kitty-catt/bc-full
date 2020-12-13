@@ -2,9 +2,11 @@
 
 This repository aims to deploy the full IBM Blue Compute shop with a single command into an Openshift Cluster with corresponding Tekton pipeline. The Tekton pipeline will build the repo's from source to container image. <br>
 
-The following repositories are deployed: <br>
+The following repositories are deployed depending on whether you deploy the official IBM version or the forks: <br>
 
 [IBM blue compute](https://github.com/ibm-garage-ref-storefront/?q=storefront-ui+OR+spring&type=&language=)
+
+[IBM blue compute - forks](https://github.com/kitty-catt?tab=repositories&q=spring+OR+storefront-ui&type=&language=)
 
 
 # 2 Preparation
@@ -59,9 +61,12 @@ The following commands will setup the namespace full-bc on your OCP4 cluster.
     bash scripts/setup.sh
 
 When the script is run, then it will install:
-1. the pipelines;
+1. the pipelines (with all tekton ***);
 2. the foundational databases and load them (it will take about 1 or 2 minutes until the database is ready). 
 
+Check what you can build with:
+
+    tkn resource list
 
 # 3 Lets GO!
 
