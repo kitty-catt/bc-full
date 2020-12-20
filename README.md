@@ -15,6 +15,10 @@ Get yourself a free Openshift 4 cluster for a couple of hours:
 
 [IBM Open Labs](https://developer.ibm.com/openlabs/openshift)
 
+Or ... go where the wild ducks fly and get CRC:
+
+[Redhat CRC](https://developers.redhat.com/products/codeready-containers/overview)
+
 Get the login (right top side of the OCP console, IAM, copy login command).
 
 Login to the cluster:
@@ -29,6 +33,12 @@ Login to the cluster:
     cp scripts/config ~/config.bc-full
     ln -sf ~/config.bc-full ~/config
     vi ~/config
+
+## a.1) Preparation on CRC
+
+Comment out the storageClassName:
+
+    vi tools/httpd/httpd-pvc.yaml
 
 
 ## b) Setup Tools
