@@ -61,6 +61,11 @@ Note: the site scan will reveal vulnerabilities in the dependencies and source. 
 
 Test access to the silver platter on the following link on [CRC](http://silver-platter-full-bc.apps-crc.testing/) 
 
+On IBM DTE the equivalent is:
+
+    SP=$(oc get route | grep silver-platter | awk '{ print $2 }')
+    echo https://$SP
+
 
 ## c) Pipeline Resources
 
