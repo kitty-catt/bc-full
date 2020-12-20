@@ -25,6 +25,7 @@ Login to the cluster:
 
     oc login --token=... --server=...
 
+Note: you can get the oc CLI from the openshift web console.
 
 ## a) Configuration
 
@@ -101,7 +102,9 @@ Build the container images via the
 
 Wait till the build gets in state completed:
 
-    watch "oc get po | grep pipeline"
+    watch "tkn pipelinerun list"
+
+Note: you can get the tekton CLI from the openshift web console.
 
 ## b) Deploy the microservices
 
