@@ -118,9 +118,20 @@ Note: in the OCP console you can inspect the status of the deployments in the na
     oc whoami --show-console
 
 
-## c) Make a user
+## c) Make a customer
 
     bash scripts/customers/make_user.sh
+
+## d) Login and order
+
+Login to the store with the user that you have created and order something from the shop.
+
+## e) Enjoy
+
+Login to the shop and enjoy:
+
+![Enjoy](images/enjoy.jpg?raw=true "Title")
+
 
 # Levelling up
 
