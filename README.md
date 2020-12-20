@@ -176,7 +176,15 @@ Note: not quite ready, will break the shop login in its current state. Need to r
 Test:
 
     AUTHMS=$(oc get routes | grep auth-ms-openliberty | awk '{ print $2 }')
-    curl -k -d "grant_type=password&client_id=bluecomputeweb&client_secret=bluecomputewebs3cret&username=foo&password=bar&scope=openid" https://$AUTHMS/oidc/endpoint/OP/token | jq .
+
+    export DATA=grant_type=password
+    export DATA="${DATA}&client_id=bluecomputeweb"
+    export DATA="${DATA}&client_secret=bluecomputewebs3cret"
+    export DATA="${DATA}&username=foo"
+    export DATA="${DATA}&password=bar"
+    export DATA="${DATA}&scope=openid"
+
+    curl -k -d "$DATA" https://$AUTHMS/oidc/endpoint/OP/token | jq .
 
 
 # 4 Tear Down
