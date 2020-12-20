@@ -100,7 +100,7 @@ Build the container images via the
 
     bash scripts/build.sh
 
-Wait till the build gets in state completed:
+Wait till the tekton pipeline runs go from state "Running" to state "Succeeded": 
 
     watch "tkn pipelinerun list"
 
