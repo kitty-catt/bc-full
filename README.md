@@ -34,7 +34,7 @@ Login to the cluster:
     ln -sf ~/config.bc-full ~/config
     vi ~/config
 
-## a.1) Preparation on CRC
+### a.1) Preparation on CRC
 
 Comment out the storageClassName:
 
