@@ -130,7 +130,7 @@ Login to the store with the user that you have created and order something from 
 
 Login to the shop and enjoy:
 
-![Enjoy](images/enjoy.jpg?raw=true "Title")
+![Enjoy](images/enjoy.png?raw=true "Title")
 
 
 # Levelling up
