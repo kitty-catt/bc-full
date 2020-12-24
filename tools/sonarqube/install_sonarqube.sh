@@ -30,8 +30,20 @@ oc adm policy add-scc-to-user privileged system:serviceaccount:tools:default
 oc adm policy add-scc-to-user privileged system:serviceaccount:tools:sonarqube
 
 # Run the following command on DTE console to install sonarqube
-~/bin/helm install sonarqube oteemo/sonarqube --version 6.6.0
+# https://artifacthub.io/packages/helm/oteemo-charts/sonarqube
+#~/bin/helm install sonarqube oteemo/sonarqube --version 6.6.0
+~/bin/helm install sonarqube oteemo/sonarqube \
+  --set ingress.enabled=true \
+  --set ingress.hosts[0].name=sonar-tools.apps-crc.testing
 
+#helm install oteemocharts/sonarqube --set OpenShift.enabled=true,\
+#                                          serviceAccount.create=true,\
+#                                          postgresql.serviceAccount.enabled=true,\
+#                                          postgresql.securityContext.enabled=false,\
+#                                          postgresql.volumePermissions.enabled=true,\
+#                                          postgresql.volumePermissions.securityContext.runAsUser="auto"
+
+# the new command should create the service account, but does not work on 
 sleep 20
 oc patch deployment/sonarqube-sonarqube --patch '{"spec":{"template":{"spec":{"serviceAccountName": "sonarqube"}}}}'
 
