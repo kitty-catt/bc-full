@@ -43,7 +43,7 @@
         "redirect_url": "http://localhost"
       },
       "customer": {
-        "protocol": "https",
+        "protocol": "http",
         "service_name": "customer-ms-spring:8080",
         "base_path": "/oidc/endpoint/OP",
         "paths": {
