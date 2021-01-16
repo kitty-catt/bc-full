@@ -57,7 +57,7 @@
       "oauth20": {
         "protocol": "http",
         "service_name": "auth-ms-spring:8080",
-        "base_path": "/oidc/endpoint/OP",
+        "base_path": "/oauth",
         "paths": {
           "authz": "/authorize",
           "token": "/token"

@@ -27,3 +27,7 @@ oc new-app --name=customer-ms-spring \
 #oc expose svc/customer-ms-spring --port=8080 \
 #  -l app.kubernetes.io/part-of=customer-subsystem
 
+# The customer-ms-spring service runs on port 8082, ... need to patch port
+
+echo "TODO: patch customer-ms-spring port to target port 8082 !!!"
+
